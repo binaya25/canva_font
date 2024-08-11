@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Font Pairing Recommendations</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 30px;
+    }
+
+    .font-select {
+      margin-bottom: 20px;
+    }
+
+    .recommendations {
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 5px;
+      text-align: center;
+    }
+
+    .joke {
+      margin-top: 20px;
+      font-style: italic;
+    }
+  </style>
+</head>
+<body>
+  <h1>Font Pairing Recommendations</h1>
+
+  <div class="container">
+    <div class="font-select">
+      <label for="selected-font">Select a font:</label>
+      <select id="selected-font">
+        <option value="Times New Roman">Times New Roman</option>
+        <option value="Arial">Arial</option>
+        <option value="Georgia">Georgia</option>
+        <option value="Helvetica Neue">Helvetica Neue</option>
+        <option value="Roboto">Roboto</option>
+      </select>
+      <button onclick="showRecommendations()">Font Pairing</button>
+    </div>
+
+    <div class="recommendations" id="recommendations">
+      <!-- Font pairing recommendations will be displayed here -->
+    </div>
+
+    <div class="joke" id="joke">
+      <!-- Randomly generated joke will be displayed here -->
+    </div>
+  </div>
+
+  <script>
+    function showRecommendations() {
+      var selectedFont = document.getElementById("selected-font").value;
+      var recommendationsDiv = document.getElementById("recommendations");
+      var jokeDiv = document.getElementById("joke");
+
+      // Reset the recommendations and joke
+      recommendationsDiv.innerHTML = "";
+      jokeDiv.innerHTML = "";
+
+      // Provide font pairing recommendations based on the selected font
+      switch (selectedFont) {
+        case "Times New Roman":
+          displayRecommendation("Times New Roman is a serif font. It goes well with Arial, Gotham, Georgia, Goudy Trajan, Neutra Display, Helvetica Neue, NY Irvin, Druk, Avenir, and Helios. If you are using Times New Roman, try giving the content a 10px font size.");
+          displayJoke("Why do fonts get so tired? They're always in italics!");
+          break;
+        case "Arial":
+          displayRecommendation("Arial is a sans-serif font. It pairs well with Georgia, Palatino, Garamond, Baskerville, and Lucida Bright.");
+          displayJoke("Why did the font go to the doctor? It had a serif problem!");
+          break;
+        case "Georgia":
+          displayRecommendation("Georgia is a serif font. It complements well with Arial, Verdana, Tahoma, and Trebuchet MS.");
+          displayJoke("Why did the font cross the road? To get to the other side of the page!");
+          break;
+        case "Helvetica Neue":
+          displayRecommendation("Helvetica Neue is a sans-serif font. It works nicely with Garamond, Baskerville, Caslon, and Minion Pro.");
+          displayJoke("Why did the font go on a diet? It needed to fit into its font size!");
+          break;
+        case "Roboto":
+          displayRecommendation("Roboto is a sans-serif font. It pairs well with Merriweather, Lora, Libre Baskerville, and Playfair Display.");
+          displayJoke("Why did the font get sent to the gym? It needed to work on its kerning!");
+          break;
+        default:
+          displayRecommendation("Sorry, we don't have font pairing recommendations for the selected font yet.");
+          displayJoke("Why did the font go to the masquerade party? It wanted to dress up in a new typeface!");
+      }
+    }
+
+    function displayRecommendation(recommendation) {
+      var recommendationsDiv = document.getElementById("recommendations");
+      recommendationsDiv.innerHTML = recommendation;
+    }
+
+    function displayJoke(joke) {
+      var jokeDiv = document.getElementById("joke");
+      jokeDiv.innerHTML = joke;
+    }
+  </script>
+</body>
+</html>
